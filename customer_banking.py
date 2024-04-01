@@ -3,6 +3,7 @@
 from savings_account import create_savings_account
 from cd_account import create_cd_account
 
+
 # Define the main function
 def main():
     """This function prompts the user to enter the savings and cd account balance, interest rate,
@@ -16,17 +17,17 @@ def main():
     savings_maturity = int(input("Enter number of months for the savings account: "))
 
     # Call the create_savings_account function and pass the variables from the user.
-    savings_account = create_savings_account(
+    updated_savings_balance, updated_savings_interest_earned = create_savings_account(
         savings_balance, savings_interest, savings_maturity)
     
     # Print out the interest earned and updated savings account balance with interest earned for the given months.
     # ADD YOUR CODE HERE
-    updated_savings_balance = savings_account.get_balance()
-    interest_earned = savings_account.get_interest()
+    #updated_savings_balance = savings_account.get_balance()
+    #interest_earned = savings_account.get_interest()
 
     print(f"The updated balance is ${updated_savings_balance:,.2f}")
-    print(f"The interest rate is {savings_interest}")  
-    print(f"The interest earned is ${interest_earned:,.2f}")
+    print(f"The interest rate is {savings_interest*100:,.2f}%")  
+    print(f"The interest earned is ${updated_savings_interest_earned:,.2f} for {savings_maturity} months")
 
     # Prompt the user to set the CD balance, interest rate, and months for the CD account.
     # ADD YOUR CODE HERE
@@ -35,16 +36,13 @@ def main():
     cd_maturity = int(input("Enter the number of months for the CD account: "))
 
     # Call the create_cd_account function and pass the variables from the user.
-    cd_account = create_cd_account(cd_balance, cd_interest, cd_maturity)
-
-    updated_cd_balance = cd_account.get_balance()
-    interest_earned = cd_account.get_interest()
+    updated_cd_balance, updated_cd_interest_earned = create_cd_account(cd_balance, cd_interest, cd_maturity)    
 
     # Print out the interest earned and updated CD account balance with interest earned for the given months.
     # ADD YOUR CODE HERE
     print(f"The updated balance is ${updated_cd_balance:,.2f}")  
-    print(f"The interest rate is {cd_interest}")  
-    print(f"The interest earned is ${interest_earned:,.2f}")
+    print(f"The interest rate is {cd_interest*100:,.2f}%")  
+    print(f"The interest earned is ${updated_cd_interest_earned:,.2f} for {cd_maturity} months")
     
 
 if __name__ == "__main__":
